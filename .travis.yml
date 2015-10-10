@@ -48,6 +48,7 @@ before_install:
 install:
 
 before_script:
+  - if [[ $RACKET_VERSION == 'HEAD' ]]; then raco pkg install --auto unstable-debug-lib ; fi
 
 script:
   - raco test --table zenspider/ch*.rkt
