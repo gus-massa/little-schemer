@@ -28,12 +28,14 @@ env:
     # - RACKET_VERSION=6.2 (avoid bug)
     - RACKET_VERSION=6.2.1
     - RACKET_VERSION=HEAD
+    - RACKET_VERSION=RELEASE
 
 # You may want to test against certain versions of Racket, without
 # having them count against the overall success/failure.
 matrix:
   allow_failures:
     # - env: RACKET_VERSION=HEAD
+    # - env: RACKET_VERSION=RELEASE
 
   # Fast finish: Overall build result is determined as soon as any of
   # its rows have failed, or, all of its rows that aren't allowed to
@@ -44,6 +46,7 @@ before_install:
   - git clone https://github.com/greghendershott/travis-racket.git
   - cat travis-racket/install-racket.sh | bash # pipe to bash not sh!
   - export PATH="${RACKET_DIR}/bin:${PATH}" #install-racket.sh can't set for us
+  - if [[ "$RACKET_VERSION" = "RELEASE" ]]; then  raco pkg install --auto main-distribution  ; fi
 
 install:
 
