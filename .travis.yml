@@ -46,12 +46,12 @@ before_install:
   - git clone https://github.com/greghendershott/travis-racket.git
   - cat travis-racket/install-racket.sh | bash # pipe to bash not sh!
   - export PATH="${RACKET_DIR}/bin:${PATH}" #install-racket.sh can't set for us
-  - if [[ "$RACKET_VERSION" = "RELEASE" ]]; then  raco pkg install --auto main-distribution  ; fi
 
 install:
 
 before_script:
   - if [[ $RACKET_VERSION == 'HEAD' ]]; then raco pkg install --auto unstable-debug-lib ; fi
+  - if [[ $RACKET_VERSION == 'RELEASE' ]]; then raco pkg install --auto unstable-debug-lib ; fi
 
 script:
   - raco test --table zenspider/ch*.rkt
