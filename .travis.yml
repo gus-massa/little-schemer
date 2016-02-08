@@ -24,10 +24,11 @@ env:
     # create a Travis-CI build matrix to test against multiple Racket
     # versions.
     # - RACKET_VERSION=6.1 (not necessary, too old)
-    - RACKET_VERSION=6.1.1
+    # - RACKET_VERSION=6.1.1
     # - RACKET_VERSION=6.2 (avoid bug)
     - RACKET_VERSION=6.2.1
     - RACKET_VERSION=6.3
+    - RACKET_VERSION=6.4
     - RACKET_VERSION=HEAD
     - RACKET_VERSION=RELEASE
 
@@ -54,6 +55,7 @@ before_script:
   - if [[ $RACKET_VERSION == 'HEAD' ]]; then raco pkg install --auto unstable-debug-lib ; fi
   - if [[ $RACKET_VERSION == 'RELEASE' ]]; then raco pkg install --auto unstable-debug-lib ; fi
   - if [[ $RACKET_VERSION == '6.3' ]]; then raco pkg install --auto unstable-debug-lib ; fi
+  - if [[ $RACKET_VERSION == '6.4' ]]; then raco pkg install --auto unstable-debug-lib ; fi
 
 script:
   - raco test --table zenspider/ch*.rkt
