@@ -26,9 +26,11 @@ env:
     # - RACKET_VERSION=6.1 (not necessary, too old)
     # - RACKET_VERSION=6.1.1
     # - RACKET_VERSION=6.2 (avoid bug)
-    - RACKET_VERSION=6.2.1
-    - RACKET_VERSION=6.3
+    # - RACKET_VERSION=6.2.1
+    # - RACKET_VERSION=6.3
     - RACKET_VERSION=6.4
+    - RACKET_VERSION=6.5
+    - RACKET_VERSION=6.6
     - RACKET_VERSION=HEAD
     - RACKET_VERSION=RELEASE
 
@@ -48,14 +50,12 @@ before_install:
   - git clone https://github.com/greghendershott/travis-racket.git
   - cat travis-racket/install-racket.sh | bash # pipe to bash not sh!
   - export PATH="${RACKET_DIR}/bin:${PATH}" #install-racket.sh can't set for us
+  # necessary for version >= 6.3  
+  - raco pkg install --auto unstable-debug-lib
 
 install:
 
 before_script:
-  - if [[ $RACKET_VERSION == 'HEAD' ]]; then raco pkg install --auto unstable-debug-lib ; fi
-  - if [[ $RACKET_VERSION == 'RELEASE' ]]; then raco pkg install --auto unstable-debug-lib ; fi
-  - if [[ $RACKET_VERSION == '6.3' ]]; then raco pkg install --auto unstable-debug-lib ; fi
-  - if [[ $RACKET_VERSION == '6.4' ]]; then raco pkg install --auto unstable-debug-lib ; fi
 
 script:
   - raco test --table zenspider/ch*.rkt
