@@ -56,8 +56,8 @@ install:
 before_script:
 
 script:
-  - raco test --table zenspider/ch*.rkt
-  - raco test --table icole/ch*.rkt
+  - raco test --table zenspider
+  - raco test --table icole
 
 after_script:
 
