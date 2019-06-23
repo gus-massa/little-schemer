@@ -1,7 +1,7 @@
 #lang racket
 (require "lib/shared.rkt")
-(require "ch4.rkt")
-(require "ch6.rkt")
+(require "ch04.rkt")
+(require "ch06.rkt")
 (require rackunit)
 
 ; rember from ch 5

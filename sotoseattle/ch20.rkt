@@ -71,19 +71,19 @@
 
 ; check the file ch20_boxes.rkt to understand the above deadly-yet-innocent-looking defintions.
 
-(define the-meaning
+#;(define the-meaning
   (lambda (e)
     (meaning e look-up-in-global-table)))
 
-(define look-up-in-global-table
+#;(define look-up-in-global-table
   (lambda (name)
-    (lookup global-table name)))
+    (lookup 0 global-table name)))
 
-(define meaning
+#;(define meaning
   (lambda (e table)
     ((expression-to-action e) e table)))
 
-(define *quote
+#;(define *quote
   (lambda (e)
     (text-of e)))
 

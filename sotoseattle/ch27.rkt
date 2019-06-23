@@ -163,11 +163,11 @@
       [else (+ (car l)
                (* (numb_me (cdr l)) 2))])))
 (module+ test
-  [check-equal? (run* (s) (== (numb_me '()) s)) 0]
-  [check-equal? (run* (s) (== (numb_me '(1)) s)) 1]
-  [check-equal? (run* (s) (== (numb_me '(1 0 1 1)) s)) 13]
+  [check-equal? (run* (s) (== (numb_me '()) s)) '(0)]
+  [check-equal? (run* (s) (== (numb_me '(1)) s)) '(1)]
+  [check-equal? (run* (s) (== (numb_me '(1 0 1 1)) s)) '(13)]
   [check-equal? (run* (s) (== (numb_me '(0 1 0 1 0 0 0 1 1 1 0 0 0 0 1)) s))
-                17290])
+                '(17290)])
 
 ; # 43 do build-num a.k.a biteme
 (define beat_it
@@ -200,11 +200,11 @@
     (bite_me (+ (numb_me l1) (numb_me l2)))))
 
 (module+ test
-  [check-equal? (run* (s) (== (sum_bits '(1) '(1)) s)) '(0 1)]
-  [check-equal? (run* (s) (== (sum_bits '(0 0 0 1) '(1 1 1)) s)) '(1 1 1 1)]
-  [check-equal? (run* (s) (== (sum_bits '(1 1 1) '(0 0 0 1)) s)) '(1 1 1 1)]
-  [check-equal? (run* (s) (== (sum_bits '() '(1 1 0 0 1)) s)) '(1 1 0 0 1)]
-  [check-equal? (run* (s) (== (sum_bits '(1 1 0 0 1) '(1)) s)) '(0 0 0 1 1)])
+  [check-equal? (run* (s) (== (sum_bits '(1) '(1)) s)) '((0 1))]
+  [check-equal? (run* (s) (== (sum_bits '(0 0 0 1) '(1 1 1)) s)) '((1 1 1 1))]
+  [check-equal? (run* (s) (== (sum_bits '(1 1 1) '(0 0 0 1)) s)) '((1 1 1 1))]
+  [check-equal? (run* (s) (== (sum_bits '() '(1 1 0 0 1)) s)) '((1 1 0 0 1))]
+  [check-equal? (run* (s) (== (sum_bits '(1 1 0 0 1) '(1)) s)) '((0 0 1 0 1))])
 
 ;# 80 - 84
 (define poso

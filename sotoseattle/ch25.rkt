@@ -1,9 +1,9 @@
 #lang racket
-(require "../basic_defs.rkt")
-(require "../lib/shared.rkt")
+(require "basic_defs.rkt")
+(require "lib/shared.rkt")
 (require rackunit)
 (require racket/trace)
-(require "../../lib/mk.rkt")
+(require "../lib/mk.rkt")
 
 ; # 1 - 8
 (define append

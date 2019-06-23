@@ -1,7 +1,7 @@
 #lang racket
 (require "lib/shared.rkt")
-(require "ch6.rkt")
-(require "ch7.rkt")
+(require "ch06.rkt")
+(require "ch07.rkt")
 (require rackunit)
 (require racket/trace)
 
@@ -140,6 +140,7 @@
 ; no need to code it here, but to follow with paper and pen
 ; another good input for this: http://mvanier.livejournal.com/2897.html
 
+#|
 ; Here are my notes about it:
 ;
 ; 1. Why Y?
@@ -381,4 +382,4 @@
 
 ; this is the last bit missing !!!
 (f f) == (co (lambda (x) ((f f) x))))
-
+|#

@@ -1,7 +1,7 @@
 #lang racket
 (require "lib/shared.rkt")
-;(require "ch6.rkt")
-;(require "ch7.rkt")
+(require "ch06.rkt")
+(require "ch07.rkt")
 (require rackunit)
 (require racket/trace)
 
@@ -46,14 +46,6 @@
 ;      [(atom? e) (atom-to-action e)]
 ;      [else (list-to-action e)])))
 
-(define atom-to-action
-  (lambda (e)
-    (cond
-      [(number? e) *const]
-      [else #t])))
-
-(atom-to-action 5)
-
 (define *const
   (lambda (e table)
     (cond
@@ -61,3 +53,11 @@
       [(eq? e #t) #t]
       [(eq? e #f) #f]
       [else (build (quote primitive) e)])))
+
+(define atom-to-action
+  (lambda (e)
+    (cond
+      [(number? e) *const]
+      [else #t])))
+
+(atom-to-action 5)
