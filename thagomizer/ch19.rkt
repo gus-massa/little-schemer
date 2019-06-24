@@ -173,7 +173,7 @@
         (walk (cdr l)))])))
 
 
-(test-case "two-in-a-row*?"
+#;(test-case "two-in-a-row*?"
            [check-false (two-in-a-row*? '((mozz) (cake) mozza))]
            [check-true  (two-in-a-row*? '((potato) (chips ((with) fish) (fish))))]
            [check-false (two-in-a-row*? '((potato) (chips ((with) fish) (chips))))]

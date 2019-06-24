@@ -1,3 +1,5 @@
+#lang racket
+#|
 #lang cKanren
 
 (require cKanren/miniKanren)
@@ -64,3 +66,4 @@
             (4-queens r)
             => (num-list '((2 4 1 3)
                            (3 1 4 2))))
+|#

@@ -167,6 +167,6 @@
                          (* (y-coord (car living-cells)) SIDE)
                          (draw-board (cdr living-cells)))])))
 
-(big-bang SEED
+#;(big-bang SEED
           (on-tick tick-of-the-clock 0.3)
           (to-draw draw-board))

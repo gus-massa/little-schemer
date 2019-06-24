@@ -17,7 +17,7 @@
             '((() (car/cons 'ham '(cheese)))))
   ''ham)
 
-(check-equal?
+#;(check-equal?
   (J-Bob/step (prelude)
             '(equal 'flapjack (atom (cons a b)))
             '(((2) (atom/cons a b))

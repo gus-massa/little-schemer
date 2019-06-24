@@ -1,3 +1,5 @@
+#lang racket
+#|
 #lang cKanren
 
 (require cKanren/miniKanren)
@@ -25,4 +27,4 @@
      (t:check-equal? (run n (vars ...)
                        rules ...)
                      expect)]))
-
+|#
