@@ -1,5 +1,7 @@
 #lang racket
 
+(define (atom? x) (not (pair? x)))
+
 (define rember-f ;; a.k.a deleteBy
   (lambda (test? a l)
     (cond
@@ -54,7 +56,7 @@
       (cond
         [(null? l) '()]
         [(eq? (car l) old)
-         (seq new old (cdrl l))]
+         (seq new old (cdr l))]
         [else (cons (car l) 
                     ((insert-g seq) new old (cdr l)))]))))
 
@@ -89,7 +91,7 @@
   (lambda (new old l)
     (cons new l)))
 
-(define subst (insert-g seqS))
+#;(define subst (insert-g seqS))
 
 (define atom-to-function
   (lambda (x)
@@ -98,7 +100,7 @@
       [(eq? x '*) *]
       [else expt])))
 
-(define value
+#;(define value
   (lambda (nexp)
     (cond
       [(atom? nexp) nexp]
@@ -152,7 +154,7 @@
 (define new-friend
   (lambda (newlat seen)
     (a-friend newlat
-         (cons (car lat) seen))))
+         (cons (car newlat) seen))))
 
 (define latest-friend
   (lambda (newlat seen)
@@ -169,7 +171,7 @@
       [else (cons (car lat)
                   (multiinsertR new old (cdr lat)))])))
 
-(define multiinsertR
+(define multiinsertR2
   (lambda (new oldL oldR lat)
     (cond
       [(null? lat) '()]
@@ -177,7 +179,7 @@
        (cons new
              (cons oldL
                    (multiinsertR new oldL oldR (cdr lat))))]
-      [(eq? (car lat) old)
+      [(eq? (car lat) oldR)
        (cons oldR
              (cons new
                    (multiinsertR new oldL oldR (cdr lat))))]

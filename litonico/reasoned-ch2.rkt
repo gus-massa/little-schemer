@@ -119,7 +119,7 @@
     (fresh (tail)
       (conso head tail lst))))
 
-(define pairo-by-cons
+#;(define pairo-by-cons
   (lambda (pair)
     (fresh (head tail)
       (conso head tail lst))))

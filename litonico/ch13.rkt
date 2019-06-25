@@ -1,4 +1,8 @@
-(define intersect (set1 set2)
+#lang racket
+
+(define (member? x l) (and (member x l) #t))
+
+(define (intersect set1 set2)
   (letrec
     (( I (lambda (set)
            (cond
@@ -6,8 +10,8 @@
              [(member? (car set) set2)
               (cons (car set)
                     (I (cdr set)))]
-             [else (I (cdr set))])))
-     (I set1))))
+             [else (I (cdr set))]))))
+     (I set1)))
 
 (define intersectall
   (lambda (lset)
@@ -38,7 +42,7 @@
 
 ;; Inline intersect, so it can use the continuation on '().
 ;; This is a monstrosity.
-(define intersectall/letcc
+#;(define intersectall/letcc2
   (lambda (lset)
     (let/cc hop
       (letrec
@@ -86,7 +90,7 @@
                     (cond
                       [(null? lat) '()]
                       [(eq? (car lat) a)
-                       (skip (R (cdr lat)))h]
+                       (skip (R (cdr lat)))]
                       [else
                         (cons (car lat)
                               (R (cdr lat)))]))))

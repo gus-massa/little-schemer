@@ -1,5 +1,6 @@
 #lang racket
 
+(define x #f)
 (define dinerR
   (lambda (food)
     (set! x food)

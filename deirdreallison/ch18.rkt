@@ -84,7 +84,7 @@
       (cond
         ((null? p) 0)
         (else
-         (add1 (C p (kdr p))))))))
+         (add1 (C p (kdr p)))))))))
 
 
 (displayln (lots 3))

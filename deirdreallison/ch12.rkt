@@ -68,7 +68,7 @@
                          ((null? lat) #f)
                          ((eq? (car lat) a) #t)
                          (else (N? (cdr lat)))))))
-              (N? lat)))
+              (N? lat)))))
       (U set1))))
 
 (define two-in-a-row?
@@ -76,7 +76,7 @@
         ((W (lambda (a lat)
               (cond
                 ((null? lat) #f)
-                (else (or (eq? (car late) a)
+                (else (or (eq? (car lat) a)
                           (W (car lat)
                              (cdr lat))))))))
       (lambda (lat)

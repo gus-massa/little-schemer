@@ -1,3 +1,8 @@
+#lang racket
+
+(define (member? x l) (and (member x l) #t))
+(define (atom? x) (not (pair? x)))
+
 (define set?
   (lambda (lat)
     (cond
@@ -12,7 +17,7 @@
       [(member? (car lat) (cdr lat)) (makeset (cdr lat))]
       [else (cons (car lat) (makeset (cdr lat)))])))
 
-(define makeset1
+#;(define makeset1
   (lambda (lat)
     (cond
       [(null? lat) '()]
@@ -32,9 +37,9 @@
       [(subset? set1 set2) (subset? set2 set1)]
       [else #f])))
 
-(define eqset?
+(define eqset2?
   (lambda (set1 set2)
-    (and (subset? set1 set2) (subset set2 set1))))
+    (and (subset? set1 set2) (subset? set2 set1))))
 
 (define intersect?
   (lambda (set1 set2)
@@ -107,7 +112,7 @@
   (lambda (rel)
     (cond
       [(null? rel) '()]
-      [else (cons (build
+      [else (cons (cons
                     (second (car rel))
                     (first (car rel)))
                   (revrel (cdr rel)))])))

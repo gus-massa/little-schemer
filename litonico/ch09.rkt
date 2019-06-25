@@ -34,7 +34,7 @@
   (lambda (pora)
     (cond
       [(atom? pora) pora]
-      [(a-pair? (first pora))
+      [(pair? (first pora))
        (align (shift pora))]
       [else (build (first pora)
                    (align (second pora)))])))
@@ -57,15 +57,15 @@
   (lambda (pora)
     (cond
       [(atom? pora) pora]
-      [(a-pair? (first pora))
-       (align (revpair pora))]
+      [(pair? (first pora))
+       (align (cons pora))]
       [else (build (first pora)
                    (shuffle (second pora)))])))
 
 (define collatz ;; I reallllly hope this is solved in my lifetime
   (lambda (n)
     (cond
-      [(one? n) 1]
+      [(= n 1) 1]
       [(even? n) (collatz (/ n 2))]
       [else (collatz (add1 (* 3 n)))])))
 

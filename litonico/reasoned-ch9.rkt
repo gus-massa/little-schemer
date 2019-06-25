@@ -68,7 +68,7 @@
     (let [(v (walk v s))]
       (cond
         [(var? v)
-         (ext-s v (reify-name (size-s)) s)]
+         (ext-s v (reify-name 0 #;(size-s)) s)]
         [(pair? v) (reify-s (cdr v)
                             (reify-s (car v) s))]
         [else s]))))

@@ -1,5 +1,5 @@
 #lang racket
-
+#|
 (require "prelude.rkt")
 
 (define new-entry build)
@@ -187,3 +187,4 @@
              (extend-table 
                (new_entry (formals-of closure) vals)
                (table-of closure)))))
+|#

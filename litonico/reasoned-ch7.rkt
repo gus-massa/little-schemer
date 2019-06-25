@@ -71,13 +71,13 @@
       [else (cons 1 (build-num (quotient (- n 1) 2)))])))
 
 
-(define poso ;; positive-o
+#;(define poso ;; positive-o
   (lambda (n)
     (fresh (a d)
       (== (a . d) n))))
 
 
-(define >1o
+#;(define >1o
   (lambda (n)
     (fresh (a ad dd)
       (== (a ad . dd) n))))

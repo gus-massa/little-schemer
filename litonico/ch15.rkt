@@ -1,3 +1,6 @@
+#lang racket
+
+(define x #f)
 (set! x 'skins)
 
 (define gourmet
@@ -22,14 +25,14 @@
     (cons 'milkshake
           (cons food '()))))
 
-(define omnivore
+#;(define omnivore
   (let ((x 'minestrone)))
   (lambda (food)
     (set! x food)
     (cons food
           (cons x '()))))
 
-(define gobbler
+#;(define gobbler
   (let ((x 'minestrone)))
   (lambda (food)
     (set! x food)

@@ -1,3 +1,5 @@
+#lang racket
+#|
 (define multirember
   (lambda (a lat)
     ((Y (lambda (mr)
@@ -104,3 +106,4 @@
 (define y
   (lambda (f)
     (f (y f))))
+|#

@@ -50,7 +50,7 @@ before_install:
   - cat travis-racket/install-racket.sh | bash # pipe to bash not sh!
   - export PATH="${RACKET_DIR}/bin:${PATH}" #install-racket.sh can't set for us
   # necessary for version >= 6.3  
-  - raco pkg install --auto unstable-debug-lib
+  - raco pkg install --auto unstable-debug-lib minikanren
   - racket -v
 
 install:
@@ -58,11 +58,16 @@ install:
 before_script:
 
 script:
-  - raco test --table icole
-  - raco test --table sentientmonkey
-  - raco test --table sotoseattle
-  - raco test --table thagomizer
-  - raco test --table zenspider
+  - raco test --table -Q lib
+  - raco test --table -Q deirdreallison
+  - raco test --table -Q icole
+  - raco test --table -Q itscaleb
+  - raco test --table -Q jmitchell
+  - raco test --table -Q litonico
+  - raco test --table -Q sentientmonkey
+  - raco test --table -Q sotoseattle
+  - raco test --table -Q thagomizer
+  - raco test --table -Q zenspider
 
 after_script:
 

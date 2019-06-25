@@ -1,3 +1,6 @@
+#lang racket
+#|
+
 (define find
   (lambda (n Ns Rs)
     (eltrec
@@ -61,4 +64,5 @@
               (set! Ns (cons n Ns))
               result)
             exists)))))
+|#
 

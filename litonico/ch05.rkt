@@ -3,7 +3,8 @@
 (require "prelude.rkt")
 (require rackunit)
 
-(define rember* ;; Recursive rember (lambda (a l)
+(define rember* ;; Recursive rember
+  (lambda (a l)
     (cond
       [(null? l) '()]
       [(atom? (car l))
@@ -122,7 +123,7 @@
        [else (or (member* a (car l))
                  (member* a (cdr l)))])))
 
-(test-case "member*"
+#;(test-case "member*"
            (check-true (member* 'chips 
                                 '((potato) (chips ((with) fish) (chisp))))))
 

@@ -1,3 +1,5 @@
+#lang racket
+#|
 #lang r6rs
 (import (library (rnrs base (6)))
         (library (rnrs lists (6)))
@@ -141,3 +143,4 @@
 
          [(eval ,e)
           (printf "~s =? ~s\n" e (value-of-3 e env))]))
+|#

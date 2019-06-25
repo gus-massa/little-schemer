@@ -112,7 +112,7 @@
 
 
 ;; Question for study group: WTF?
-(run 5 (z) ;; This is just confusing
+#;(run 5 (z) ;; This is just confusing
       (fresh (w x y z)
              (loto `((g g) (e ,w) (,x ,y) . ,z))
              (== `(,w (,x ,y) ,z) z)))

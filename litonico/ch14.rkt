@@ -1,3 +1,7 @@
+#lang racket
+
+(define (atom? x) (not (pair? x)))
+
 (define (leftmost l)
   (cond
     [(null? l) '()]

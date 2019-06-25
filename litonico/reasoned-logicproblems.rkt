@@ -25,18 +25,18 @@
 
 (define highero
   (lambda (person1 person2 lst)
-    (conde
+    (cond
       [(nullo lst) %u]
-      [(highero person1 person2 (cdr lst)) %s]
+      [(highero person1 person2 (cdr lst)) %s])))
 
 (define not-adjacento
   (lambda (person1 person2 lst)
     (conde
-      [(== person (car lst)) %u]
+      [(== person1 (car lst)) %u]
       [else %s])))
 
 
-(run 1 (x)
+#;(run 1 (x)
   (five-floorso x)
   (not-topo 'adam x)
   (not-bottomo 'bill x)

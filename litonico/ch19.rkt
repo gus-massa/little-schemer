@@ -1,3 +1,7 @@
+#lang racket
+
+(define (atom? x) (not (pair? x)))
+
 (define sub1
   (lambda (m)
     (- m 1)))
@@ -10,7 +14,7 @@
                   '())])))
 
 
-(define toppings) ; :: Continuation
+(define toppings #f) ; :: Continuation
 
 (define deepB
   (lambda (m)
@@ -34,7 +38,8 @@
                   (lambda (x)
                     (k (cons x '()))))])))
 
-(define leave)
+(define leave #f)
+(define fill #f)
 
 (define walk
   (lambda (l)

@@ -89,7 +89,7 @@
       [(eq? x '*) #t]
       [(eq? x '^) #t])))
 
-(define numbered?
+(define numbered2?
   (lambda (aexp)
     (cond
       [(atom? aexp) (number? aexp)]

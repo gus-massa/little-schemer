@@ -14,4 +14,4 @@
 (define-syntax run
   (syntax-rules ()
     ((_ num-results (x) g ...)
-     (let [(n num-results) (x (var x)
+     (let [(n num-results) (x (var x))]))))

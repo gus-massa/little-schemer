@@ -1,5 +1,5 @@
 #lang racket/base
-
+#|
 ;; table: a hash
 ;; name: a key in a hash
 ;; value: the value in a hash
@@ -113,3 +113,4 @@
     (lambda (argslist)
       (p (car argslist)
          (car (cdr argslist))))))
+|#
