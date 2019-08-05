@@ -8,6 +8,9 @@ language: c
 #
 sudo: false
 
+services:
+  - xvfb
+
 env:
   global:
     # Supply a global RACKET_DIR environment variable. This is where
@@ -46,8 +49,6 @@ matrix:
   fast_finish: false
 
 before_install:
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
   - git clone https://github.com/greghendershott/travis-racket.git
   - cat travis-racket/install-racket.sh | bash # pipe to bash not sh!
   - export PATH="${RACKET_DIR}/bin:${PATH}" #install-racket.sh can't set for us
